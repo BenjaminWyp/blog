@@ -1,9 +1,10 @@
-const express = require('express');
-const router = express.Router();
-const checkLogin = require('../middlewares/check').checkLogin;
-const CommentModel = require('../models/comments');
+import * as express from 'express';
+import { checkLogin } from '../middlewares/check';
+import CommentModel from '../models/comments';
 
-router.post('/', checkLogin, (req, res, next) => {
+const router = express.Router();
+
+router.post('/', checkLogin, (req: Request, res: Response, next) => {
     const author = req.session.user._id;
     const postId = req.fields.postId;
     const content = req.fields.content;
@@ -53,4 +54,4 @@ router.post('/:commentId/remove', checkLogin, (req, res, next) => {
     })
 });
 
-module.exports = router;
+export default router;

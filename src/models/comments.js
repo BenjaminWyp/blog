@@ -10,7 +10,7 @@ Comment.plugin('contentToHtml', {
     }
 });
 
-module.exports = {
+export default {
     // 创建一个留言
     create: function (comment){
         return Comment.create(comment).exec();

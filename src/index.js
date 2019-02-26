@@ -1,5 +1,4 @@
 const express = require('express');
-const app = express();
 const path = require('path');
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
@@ -9,6 +8,8 @@ const routes = require('./routes')
 const pkg = require('./package')
 const winston = require('winston')
 const expressWinston = require('express-winston')
+
+const app = express();
 
 // view set
 app.set('views', path.join(__dirname, 'views'));

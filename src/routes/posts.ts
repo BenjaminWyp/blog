@@ -1,8 +1,9 @@
-const express = require('express');
+import * as express from 'express';
+import { checkLogin } from '../middlewares/check';
+import PostModel from '../models/posts';
+import CommentModel from '../models/comments';
+
 const router = express.Router();
-const checkLogin = require('../middlewares/check').checkLogin;
-const PostModel = require('../models/posts');
-const CommentModel = require('../models/comments');
 
 router.get('/', (req, res, next) => {
     const author = req.query.author;
@@ -32,7 +33,13 @@ router.post('/create', checkLogin, (req, res, next) => {
         res.redirect('back');
     }
 
-    let post = {
+    interface Post {
+        author: string,
+        title: string,
+        content: string,
+    }
+
+    let post: Post = {
         author,
         title,
         content,
@@ -40,8 +47,7 @@ router.post('/create', checkLogin, (req, res, next) => {
 
     PostModel.create(post).then(result => {
         req.flash('success', '发表成功');
-        post = result.ops[0];
-        res.redirect('/posts/' + post._id);
+        res.redirect('/posts/' + result.ops[0]);
     }).catch(next);
 });
 
@@ -141,4 +147,4 @@ router.get('/:postId/remove', checkLogin, (req, res, next) => {
     })
 });
 
-module.exports = router;
+export default router;

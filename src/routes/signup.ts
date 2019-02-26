@@ -1,14 +1,16 @@
-const express = require('express');
+import * as express from 'express';
+import { checkNotLogin } from '../middlewares/check';
+import * as fs from 'fs';
+import * as sha1 from 'sha1';
+import * as path from 'path';
+import UserModel from '../models/users';
+
 const router = express.Router();
-const checkNotLogin = require('../middlewares/check').checkNotLogin;
-const fs = require('fs');
-const sha1 = require('sha1');
-const path = require('path');
-const UserModel = require('../models/users');
 
 router.get('/', checkNotLogin, (req, res) => {
     res.render('signup');
 });
+
 router.post('/', checkNotLogin, (req, res, next) => {
     const name = req.fields.name;
     let password  = req.fields.password;
@@ -73,4 +75,4 @@ router.post('/', checkNotLogin, (req, res, next) => {
     });
 });
 
-module.exports = router;
+export default router;
