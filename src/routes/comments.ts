@@ -4,10 +4,10 @@ import CommentModel from '../models/comments';
 
 const router = express.Router();
 
-router.post('/', checkLogin, (req: Request, res: Response, next) => {
+router.post('/', checkLogin, (req, res, next) => {
     const author = req.session.user._id;
-    const postId = req.fields.postId;
-    const content = req.fields.content;
+    const postId = req.fields.postId as string;
+    const content = req.fields.content as string;
 
     // 校验参数
     try {

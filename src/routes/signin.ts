@@ -1,7 +1,7 @@
 import * as express from 'express';
 import { checkNotLogin } from '../middlewares/check';
 import UserModel from '../models/users';
-import * as sha1 from 'sha1';
+import sha1 from 'sha1';
 
 const router = express.Router();
 
@@ -10,8 +10,8 @@ router.get('/', checkNotLogin, (req, res) => {
 });
 
 router.post('/', checkNotLogin, (req, res, next) => {
-    const name = req.fields.name;
-    const password = req.fields.password;
+    const name: string = req.fields.name as string;
+    const password: string = req.fields.password as string;
 
     // 校验参数
     try {

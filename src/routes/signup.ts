@@ -1,7 +1,7 @@
 import * as express from 'express';
 import { checkNotLogin } from '../middlewares/check';
 import * as fs from 'fs';
-import * as sha1 from 'sha1';
+import sha1 from 'sha1';
 import * as path from 'path';
 import UserModel from '../models/users';
 
@@ -13,10 +13,10 @@ router.get('/', checkNotLogin, (req, res) => {
 
 router.post('/', checkNotLogin, (req, res, next) => {
     const name = req.fields.name;
-    let password  = req.fields.password;
-    const repassword = req.fields.repassword;
-    const gender = req.fields.gender;
-    const bio = req.fields.bio;
+    let password: string  = req.fields.password as string;
+    const repassword = req.fields.repassword as string;
+    const gender = req.fields.gender as string;
+    const bio = req.fields.bio as string;
     const avatar = req.files.avatar.path.split(path.sep).pop();
 
     try{
@@ -46,7 +46,7 @@ router.post('/', checkNotLogin, (req, res, next) => {
     }
 
     // 明文密码加密
-    password = sha1(password);
+    password = sha1(password) as string;
 
     let user = {
         name,

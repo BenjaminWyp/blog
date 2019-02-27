@@ -17,9 +17,9 @@ router.get('/create', checkLogin, (req, res) => {
 });
 
 router.post('/create', checkLogin, (req, res, next) => {
-    const author = req.session.user._id;
-    const title = req.fields.title;
-    const content = req.fields.content;
+    const author: string = req.session.user._id;
+    const title: string | string[] = req.fields.title;
+    const content: string | string[] = req.fields.content;
 
     try{
         if (!title.length) {
@@ -38,7 +38,6 @@ router.post('/create', checkLogin, (req, res, next) => {
         title: string,
         content: string,
     }
-
     let post: Post = {
         author,
         title,
