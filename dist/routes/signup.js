@@ -1,7 +1,7 @@
 import * as express from 'express';
 import { checkNotLogin } from '../middlewares/check';
 import * as fs from 'fs';
-import * as sha1 from 'sha1';
+import sha1 from 'sha1';
 import * as path from 'path';
 import UserModel from '../models/users';
 const router = express.Router();

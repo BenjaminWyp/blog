@@ -1,4 +1,4 @@
-import express from 'express';
+import * as express from 'express';
 import { checkLogin } from '../middlewares/check';
 const router = express.Router();
 router.get('/', checkLogin, (req, res, next) => {

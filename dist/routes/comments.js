@@ -1,4 +1,4 @@
-import express from 'express';
+import * as express from 'express';
 import { checkLogin } from '../middlewares/check';
 import CommentModel from '../models/comments';
 const router = express.Router();

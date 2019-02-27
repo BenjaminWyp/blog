@@ -1,4 +1,4 @@
-import express from 'express';
+import * as express from 'express';
 import { checkNotLogin } from '../middlewares/check';
 import UserModel from '../models/users';
 import sha1 from 'sha1';
