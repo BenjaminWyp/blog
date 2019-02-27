@@ -18,8 +18,8 @@ router.get('/create', checkLogin, (req, res) => {
 
 router.post('/create', checkLogin, (req, res, next) => {
     const author: string = req.session.user._id;
-    const title: string | string[] = req.fields.title;
-    const content: string | string[] = req.fields.content;
+    const title: string = req.fields.title as string;
+    const content: string = req.fields.content as string;
 
     try{
         if (!title.length) {

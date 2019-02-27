@@ -3,7 +3,8 @@
         "outDir": "./built",
         "allowJs": true,
         "target": "es6",
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": true,
+        "traceResolution": true
     },
     "include": [
         "./src/**/*",
