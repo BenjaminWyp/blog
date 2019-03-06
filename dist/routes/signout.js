@@ -1,11 +1,15 @@
-import * as express from 'express';
-import { checkLogin } from '../middlewares/check';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express = require("express");
+const check_1 = require("../middlewares/check");
 const router = express.Router();
-router.get('/', checkLogin, (req, res, next) => {
+router.get('/', check_1.checkLogin, (req, res, next) => {
     // 清空 session 中用户信息
     req.session.user = null;
     req.flash('success', '登出成功');
     // 登出成功后跳转到主页
     res.redirect('/posts');
 });
-export default router;
+exports.default = router;
+
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9yb3V0ZXMvc2lnbm91dC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLG1DQUFtQztBQUNuQyxnREFBa0Q7QUFFbEQsTUFBTSxNQUFNLEdBQUcsT0FBTyxDQUFDLE1BQU0sRUFBRSxDQUFDO0FBRWhDLE1BQU0sQ0FBQyxHQUFHLENBQUMsR0FBRyxFQUFFLGtCQUFVLEVBQUUsQ0FBQyxHQUFHLEVBQUUsR0FBRyxFQUFFLElBQUksRUFBRSxFQUFFO0lBQzNDLG1CQUFtQjtJQUNuQixHQUFHLENBQUMsT0FBTyxDQUFDLElBQUksR0FBRyxJQUFJLENBQUM7SUFDeEIsR0FBRyxDQUFDLEtBQUssQ0FBQyxTQUFTLEVBQUUsTUFBTSxDQUFDLENBQUM7SUFDN0IsYUFBYTtJQUNiLEdBQUcsQ0FBQyxRQUFRLENBQUMsUUFBUSxDQUFDLENBQUE7QUFDMUIsQ0FBQyxDQUFDLENBQUM7QUFFSCxrQkFBZSxNQUFNLENBQUMiLCJmaWxlIjoicm91dGVzL3NpZ25vdXQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyBleHByZXNzIGZyb20gJ2V4cHJlc3MnO1xuaW1wb3J0IHsgY2hlY2tMb2dpbiB9IGZyb20gJy4uL21pZGRsZXdhcmVzL2NoZWNrJztcblxuY29uc3Qgcm91dGVyID0gZXhwcmVzcy5Sb3V0ZXIoKTtcblxucm91dGVyLmdldCgnLycsIGNoZWNrTG9naW4sIChyZXEsIHJlcywgbmV4dCkgPT4ge1xuICAgIC8vIOa4heepuiBzZXNzaW9uIOS4reeUqOaIt+S/oeaBr1xuICAgIHJlcS5zZXNzaW9uLnVzZXIgPSBudWxsO1xuICAgIHJlcS5mbGFzaCgnc3VjY2VzcycsICfnmbvlh7rmiJDlip8nKTtcbiAgICAvLyDnmbvlh7rmiJDlip/lkI7ot7PovazliLDkuLvpobVcbiAgICByZXMucmVkaXJlY3QoJy9wb3N0cycpXG59KTtcblxuZXhwb3J0IGRlZmF1bHQgcm91dGVyO1xuIl19

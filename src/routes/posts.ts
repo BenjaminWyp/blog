@@ -107,8 +107,6 @@ router.post('/:postId/edit', checkLogin, (req, res, next) => {
         return res.redirect('back')
     }
 
-    let data = {postId, author, title};
-
     PostModel.getRawPostById(postId).then(post => {
         if (!post) {
             throw new Error('文章不存在')

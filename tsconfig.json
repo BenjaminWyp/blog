@@ -2,9 +2,14 @@
     "compilerOptions": {
         "outDir": "./dist",
         "allowJs": true,
-        "target": "es6",
+        "target": "es2017",
+        "module": "commonjs",
         "allowSyntheticDefaultImports": true,
-        "traceResolution": true
+        "traceResolution": true,
+        "sourceMap": true,
+        "noUnusedLocals": true,
+        "experimentalDecorators": true,
+        "inlineSourceMap": true
     },
     "include": [
         "./src/**/*",
