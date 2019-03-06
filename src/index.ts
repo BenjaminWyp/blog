@@ -28,7 +28,7 @@ app.set('views', path.join(`${__dirname}/../`, 'views'));
 app.set('view engine', 'ejs');
 
 // 设置静态文件目录
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(`${__dirname}/../`, 'public')))
 
 // session 中间件
 app.use(session({
