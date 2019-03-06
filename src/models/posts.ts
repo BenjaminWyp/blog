@@ -1,6 +1,8 @@
-const Post = require('../lib/mongo').Post;
-const marked = require('marked');
-const CommentModel = require('./comments')
+import * as Mongo from '../lib/mongo';
+import * as marked from 'marked' ;
+import CommentModel from './comments';
+
+const Post = Mongo.Post;
 
 // 将 post 的 content 从 markdown 转换成 html
 Post.plugin('contentToHtml', {
@@ -58,7 +60,7 @@ export default {
     },
     // 按创建时间降序获取所有用户文章或者某个特定用户的所有文章
     getPosts: function getPosts (author) {
-        const query = {}
+        const query: any = {}
         if (author) {
             query.author = author
         }
